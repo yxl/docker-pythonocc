@@ -1,12 +1,12 @@
 version: "3"
 services:
-  file-converter:
+  app:
     build:
       context: .
       args:
         PYTHONOCC_CORE_VERSION: 7.7.0
         SWIG_VERSION: 4.0.2
         FREETYPE_VERSION: 2.13.0
-        OCE_VERSION: 0.18.3
+        OCE_VERSION: 7.7.0
         SMESH_VERSION: 6.7.6
-    image: yuanxulei/pythonocc
+    image: yuanxulei/pythonocc:7.7.0-python3.9

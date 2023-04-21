@@ -9,3 +9,5 @@ Based on [original work](https://github.com/marty-sullivan/pythonocc-docker) by 
 | [PythonOCC Core](https://github.com/tpaviot/pythonocc-core)  | 0.18.1  |
 | [OpenCASCADE](https://github.com/tpaviot/oce)  | 0.18.3  |
 | [SMESH](https://github.com/tpaviot/smesh)  | 6.7.6  |
+
+Download [opencascade-7.7.0](https://dev.opencascade.org/release) and save it to `build-files` folder before building the docker.
