@@ -1,4 +1,4 @@
-FROM python:3.6
+FROM python:3.9
 
 RUN     apt-get update && \
         apt-get install -y \
@@ -23,17 +23,18 @@ ARG SMESH_VERSION=6.7.6
 ARG PYTHONOCC_CORE_VERSION=0.18.1
 
 COPY build-files/build_swig.sh /tmp
+RUN bash ../build_swig.sh $SWIG_VERSION
+
 COPY build-files/build_freetype.sh /tmp
+RUN bash ../build_freetype.sh $FREETYPE_VERSION
+
 COPY build-files/build_oce.sh /tmp
+RUN bash ../build_oce.sh $OCE_VERSION
+
 COPY build-files/build_smesh.sh /tmp
+RUN bash ../build_smesh.sh $SMESH_VERSION
+
 COPY build-files/build_pythonocc_core.sh /tmp
-
-RUN chmod +x ../*.sh
-
-RUN ../build_swig.sh $SWIG_VERSION
-RUN ../build_freetype.sh $FREETYPE_VERSION
-RUN ../build_oce.sh $OCE_VERSION
-RUN ../build_smesh.sh $SMESH_VERSION
 RUN ../build_pythonocc_core.sh $PYTHONOCC_CORE_VERSION
 
 WORKDIR /
