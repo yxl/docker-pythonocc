@@ -1,5 +1,7 @@
 FROM python:3.9
 
+COPY sources.list /etc/apt/sources.list
+
 RUN     apt-get update && \
         apt-get install -y \
             automake \
@@ -35,7 +37,7 @@ COPY build-files/build_smesh.sh /tmp
 RUN bash ../build_smesh.sh $SMESH_VERSION
 
 COPY build-files/build_pythonocc_core.sh /tmp
-RUN ../build_pythonocc_core.sh $PYTHONOCC_CORE_VERSION
+RUN bash ../build_pythonocc_core.sh $PYTHONOCC_CORE_VERSION
 
 WORKDIR /
 
